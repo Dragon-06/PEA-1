@@ -5,34 +5,23 @@
 package com.example.EJERCICIO2.model;
 
 public class Producto {
- private String nombre;
-    private String codigo;
-    private String descripcion;
-    private String categoria;
-    private int cantidad;
-    private double precio;
-    private String fechaIngreso;
+
+    private String nombre;           // Nombre del producto
+    private String categoria;        // Categoría del producto
+    private int cantidad;            // Cantidad disponible del producto
+    private double precio;           // Precio del producto
+    private String fechaCaducidad;   // Fecha de caducidad del producto
+    private int stockMinimo;         // Cantidad mínima permitida en stock
+    private int stockMaximo;         // Cantidad máxima permitida en stock
+    private String marca;            // Marca del producto
 
     // Getters y Setters
+
     public String getNombre() {
         return nombre;
     }
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public String getCodigo() {
-        return codigo;
-    }
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
     }
 
     public String getCategoria() {
@@ -56,11 +45,31 @@ public class Producto {
         this.precio = precio;
     }
 
-    public String getFechaIngreso() {
-        return fechaIngreso;
+    public String getFechaCaducidad() {
+        return fechaCaducidad;
     }
-    public void setFechaIngreso(String fechaIngreso) {
-        this.fechaIngreso = fechaIngreso;
+    public void setFechaCaducidad(String fechaCaducidad) {
+        this.fechaCaducidad = fechaCaducidad;
+    }
+
+    public int getStockMinimo() {
+        return stockMinimo;
+    }
+    public void setStockMinimo(int stockMinimo) {
+        this.stockMinimo = stockMinimo;
+    }
+
+    public int getStockMaximo() {
+        return stockMaximo;
+    }
+    public void setStockMaximo(int stockMaximo) {
+        this.stockMaximo = stockMaximo;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
 }
-

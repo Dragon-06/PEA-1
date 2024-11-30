@@ -1,36 +1,50 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Producto Registrado</title>
+    <title>+REGISTRO DE PRODUCTOS</title>
     <!-- Agregar el enlace a Bootstrap CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .container {
-            margin-top: 50px;
-            padding: 30px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #28a745;
-        }
-        .btn {
-            margin-top: 20px;
-        }
-    </style>
+<style>
+    body {
+        background-color: #e6f7ff; /* Azul claro suave */
+    }
+    .container {
+        margin-top: 50px;
+        padding: 30px;
+        background-color: #ffffff; /* Blanco */
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        color: #007bff; /* Azul intenso */
+    }
+    .btn {
+        margin-top: 20px;
+        background-color: #007bff; /* Azul intenso */
+        color: #ffffff; /* Blanco */
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+        background-color: #0056b3; /* Azul más oscuro */
+        color: #ffffff;
+    }
+</style>s
 </head>
 <body>
 
     <div class="container">
-        <h1>Producto Registrado Exitosamente</h1>
+        <h1>Producto Registrado CORRECTAMENTE</h1>
         <div class="alert alert-success" role="alert">
             <p><strong>Nombre:</strong> <span th:text="${producto.nombre}"></span></p>
             <p><strong>Precio:</strong> <span th:text="${producto.precio}"></span></p>
             <p><strong>Categoría:</strong> <span th:text="${producto.categoria}"></span></p>
+            <p><strong>Fecha de Caducidad:</strong> <span th:text="${producto.fechaCaducidad}"></span></p>
+            <p><strong>Stock Mínimo:</strong> <span th:text="${producto.stockMinimo}"></span></p>
+            <p><strong>Stock Máximo:</strong> <span th:text="${producto.stockMaximo}"></span></p>
+            <p><strong>Marca:</strong> <span th:text="${producto.marca}"></span></p>
         </div>
         <a href="/producto/registrar" class="btn btn-primary">Registrar otro producto</a>
     </div>

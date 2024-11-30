@@ -2,111 +2,106 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Registro de Producto</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #b3e0ff; /* Celeste claro */
-            padding: 20px;
-            animation: fadeIn 1s ease-in-out;
-        }
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f7d6e0; /* Rosa suave */
+        padding: 20px;
+        animation: fadeIn 1s ease-in-out;
+    }
 
-        h1 {
-            text-align: center;
-            color: #4CAF50;
-            margin-bottom: 30px;
-            animation: slideInFromTop 1s ease-in-out;
-        }
+    h1 {
+        text-align: center;
+        color: #ff6f61; /* Coral */
+        margin-bottom: 30px;
+        animation: slideInFromTop 1s ease-in-out;
+    }
 
-        form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 50%;
-            margin: 0 auto;
-            animation: slideInFromLeft 1s ease-out;
-        }
+    form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 50%;
+        margin: 0 auto;
+        animation: slideInFromLeft 1s ease-out;
+    }
 
-        label {
-            display: block;
-            margin: 10px 0 5px;
-            font-size: 14px;
-        }
+    label {
+        display: block;
+        margin: 10px 0 5px;
+        font-size: 14px;
+        color: #333; /* Gris oscuro */
+    }
 
-        input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 14px;
-            transition: transform 0.3s ease, border-color 0.3s;
-        }
+    input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+        transition: transform 0.3s ease, border-color 0.3s;
+    }
 
-        input:focus {
-            transform: scale(1.05);
-            border-color: #4CAF50;
-        }
+    input:focus {
+        transform: scale(1.05);
+        border-color: #ff6f61; /* Coral */
+    }
 
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
+    button {
+        background-color: #ff6f61; /* Coral */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
 
-        button:hover {
-            background-color: #45a049;
-        }
+    button:hover {
+        background-color: #e65550; /* Coral oscuro */
+    }
 
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
         }
+        100% {
+            opacity: 1;
+        }
+    }
 
-        @keyframes slideInFromTop {
-            0% {
-                transform: translateY(-30px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
+    @keyframes slideInFromTop {
+        0% {
+            transform: translateY(-30px);
+            opacity: 0;
         }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
 
-        @keyframes slideInFromLeft {
-            0% {
-                transform: translateX(-100%);
-                opacity: 0;
-            }
-            100% {
-                transform: translateX(0);
-                opacity: 1;
-            }
+    @keyframes slideInFromLeft {
+        0% {
+            transform: translateX(-100%);
+            opacity: 0;
         }
-    </style>
+        100% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+</style>
 </head>
 <body>
     <h1>Registro de Producto</h1>
     <form th:action="@{/producto/registrar}" th:object="${producto}" method="post">
         <label>Nombre del Producto:</label>
         <input type="text" th:field="*{nombre}" placeholder="Ej: Televisor" required>
-
-        <label>Código del Producto:</label>
-        <input type="text" th:field="*{codigo}" placeholder="Ej: P12345" required>
-
-        <label>Descripción:</label>
-        <input type="text" th:field="*{descripcion}" placeholder="Ej: Televisor de 50 pulgadas" required>
 
         <label>Categoría:</label>
         <input type="text" th:field="*{categoria}" placeholder="Ej: Electrónica" required>
@@ -117,10 +112,21 @@
         <label>Precio Unitario:</label>
         <input type="number" th:field="*{precio}" placeholder="Ej: 499.99" step="0.01" required>
 
-        <label>Fecha de Ingreso:</label>
-        <input type="date" th:field="*{fechaIngreso}" required>
+        <!-- Nuevos campos agregados -->
+        <label>Fecha de Caducidad:</label>
+        <input type="date" th:field="*{fechaCaducidad}" required>
+
+        <label>Stock Mínimo:</label>
+        <input type="number" th:field="*{stockMinimo}" placeholder="Ej: 10" required>
+
+        <label>Stock Máximo:</label>
+        <input type="number" th:field="*{stockMaximo}" placeholder="Ej: 200" required>
+
+        <label>Marca:</label>
+        <input type="text" th:field="*{marca}" placeholder="Ej: Samsung" required>
 
         <button type="submit">Registrar Producto</button>
     </form>
 </body>
+
 </html>
